@@ -31,4 +31,4 @@ COPY . .
 EXPOSE 8000
 
 # Run gunicorn
-CMD ["gunicorn", "--workers", "2", "--threads", "2", "--worker-class", "gthread", "--worker-tmp-dir", "/dev/shm", "--bind", "0.0.0.0:8000", "app:app"]
+CMD gunicorn --workers 2 --threads 2 --worker-class gthread --worker-tmp-dir /dev/shm --bind 0.0.0.0:$PORT app:app
